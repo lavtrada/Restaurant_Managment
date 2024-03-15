@@ -1,0 +1,56 @@
+﻿@* @model FoodApp.Areas.User.Models.User *@
+@* *@
+@* @{ *@
+@*     ViewBag.Title = "title"; *@
+@*     Layout = "_Layout"; *@
+@* } *@
+@* *@
+@* <h1>Users</h1> *@
+@*   <form class="row g-3" method="post" asp-area="User" asp-controller="User" asp-action="Save"> *@
+@*                         <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+@* *@
+@*                          *@
+@*                         *@
+@* *@
+@*                         <div class="col-lg-8"> *@
+@* *@
+@*                             <label asp-for="UserName" class="control-label"></label> *@
+@*                             <input asp-for="UserName" class="form-control" required/> *@
+@*                             <span asp-validation-for="UserName" class="text-danger"></span> *@
+@* *@
+@*                         </div> *@
+@*                         <div class="col-md-6"> *@
+@* *@
+@*                             <label asp-for="UserEmail" class="control-label"></label> *@
+@*                             <input asp-for="UserEmail" class="form-control" required/> *@
+@*                             <span asp-validation-for="UserEmail" class="text-danger"></span> *@
+@* *@
+@*                         </div> *@
+@*                         <div class="col-md-6"> *@
+@* *@
+@*                             <label asp-for="UserPassword" class="control-label"></label> *@
+@*                             <input asp-for="UserPassword" class="form-control" required/> *@
+@*                             <span asp-validation-for="UserPassword" class="text-danger"></span> *@
+@* *@
+@*                         </div> *@
+@*                         *@
+@* *@
+@*                          <div class="col-md-4"> *@
+@*                                                     <div class="form-floating mb-3"> *@
+@*                                                         <select required class="form-select" id="floatingSelect" aria-label="IsAdmin" asp-for="IsAdmin"> *@
+@*                                                             <option selected>IsAdmin</option> *@
+@*                                                             <option value="Yes">Yes</option> *@
+@*                                                             <option value="no">No</option> *@
+@*                                                         </select> *@
+@*                                                         <label for="IsAdmin">IsAdmin:</label> *@
+@*                          *@
+@*                                                     </div> *@
+@*                          *@
+@*                                                 </div> *@
+@* *@
+@* *@
+@*                         <div class="text-center"> *@
+@*                             <button type="submit" class="btn btn-primary">Submit</button> *@
+@*                             <button type="reset" class="btn btn-secondary">Reset</button> *@
+@*                         </div> *@
+@*                     </form><!-- End floating Labels Form --> *@

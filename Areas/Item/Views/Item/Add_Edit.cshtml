@@ -1,0 +1,61 @@
+﻿@model FoodApp.Areas.Item.Models.Item
+
+@{
+    Layout = "_Layout";
+}
+
+
+<h1>Add Item</h1>
+
+<h4>Item's Name</h4>
+<hr/>
+<table class=" table-dark">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-area="Item" asp-controller="Item" asp-action="Save" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                @Html.HiddenFor(x => x.ItemID)
+
+                <div class="col-lg-6">
+
+                    <select class="form-control" required asp-for="RestaurantID" asp-items="@(new SelectList(ViewBag.RestorantList, "RestaurantID", "RestaurantName"))">
+                        <option value="">Select restaurant</option>
+                    </select>
+                    <span asp-validation-for="RestaurantID" class="text-danger"></span>
+                </div>
+                <div class="col-lg-6">
+
+                    <select class="form-control" required asp-for="CategoryID" asp-items="@(new SelectList(ViewBag.CategoryList, "CategoryID", "CategoryName"))">
+                        <option value="">Select Category</option>
+                    </select>
+                    <span asp-validation-for="CategoryID" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ItemName" class="control-label"></label>
+                    <input asp-for="ItemName" class="form-control"/>
+                    <span asp-validation-for="ItemName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ItemDescription" class="control-label"></label>
+                    <input asp-for="ItemDescription" class="form-control"/>
+                    <span asp-validation-for="ItemDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ItemPrice" class="control-label"></label>
+                    <input asp-for="ItemPrice" class="form-control"/>
+                    <span asp-validation-for="ItemPrice" class="text-danger"></span>
+                </div>
+                <div class="btn btn-primary">
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</table>
+<div class="btn btn-info">
+    <a asp-action="Index" style="color: white;">Back to List</a>
+</div>

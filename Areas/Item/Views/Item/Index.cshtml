@@ -1,0 +1,46 @@
+﻿@model List<FoodApp.Areas.Item.Models.Item> 
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="pagetitle">
+    <h1>Food Item List</h1>
+</div>
+<p>
+    <div class="btn btn-info" onmousemove="color=white;">
+        <a asp-action="Add_Edit">Add new Item</a>
+    </div>
+</p>
+<table class="table table-borderless datatable">
+    <thead>
+    <tr>
+        <th class="col">ID</th>
+        <th class="col">Name</th>
+        <th class="col">Description</th>
+        <th class="col">Price</th>
+        <th></th>
+        <th></th>
+        @* <th scope="col">Action</th> *@
+    </tr>
+    </thead>
+
+    <tbody>
+    @foreach (var item in Model.ToList())
+    {
+        <tr>
+            <td>@item.ItemID</td>
+            <td>@item.ItemName</td>
+            <td>@item.ItemDescription</td>
+            <td>@item.ItemPrice</td>
+
+            <td><a asp-area="Item" asp-controller="Item" asp-action="Add_Edit" asp-route-ItemID="@item.ItemID">Edit</a></td>
+            <td><a asp-area="Item" asp-controller="Item" asp-action="Delete" asp-route-ItemID="@item.ItemID">Delete</a></td>
+            <td><a asp-area="Item" asp-controller="Item" asp-action="Details" asp-route-ItemID="@item.ItemID">Details </a></td>
+                        
+
+        </tr>
+    }
+    </tbody>
+</table>
+

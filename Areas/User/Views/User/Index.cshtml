@@ -1,0 +1,81 @@
+﻿@using FoodApp.Bal
+@model IEnumerable<FoodApp.Areas.User.Models.UserModel>
+
+@* @{ *@
+@*     ViewBag.Title = "title"; *@
+@*     if (CV.IsAdmin()) *@
+@*     { *@
+@*         Layout = "_Layout"; *@
+@* *@
+@*     } *@
+@*     else *@
+@*     { *@
+@*         Layout = "_ValidationScriptsPartial"; *@
+@*     } *@
+@* *@
+@* } *@
+
+
+<h1>Index</h1>
+<p>
+    @* Use Html.ActionLink with button classes to create a button *@
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">UserID</th>
+        <th scope="col">UserName</th>
+        <th scope="col">UserEmail</th>
+        <th scope="col">UserPassword</th>
+        <th scope="col">IsAdmin</th>
+        @* @{ *@
+        @*     if (CV.IsAdmin()) *@
+        @*     { *@
+        @*         <h1>ADmin</h1> *@
+        @*     } *@
+        @*     else *@
+        @*     { *@
+        @*         <h2>User</h2> *@
+        @*     } *@
+        @* } *@
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+   
+        @foreach (var item in Model.ToList())
+        {
+            <tr>
+                <td>
+                    @item.UserID
+                </td>
+                <td>
+                    @item.UserName
+                </td>
+                <td>
+                    @item.UserEmail
+                </td>
+                <td>
+                    @item.UserPassword
+                </td>
+                <td>
+                    @* @item.IsAdmin *@
+                </td>
+                <td>
+                    @* @Html.ActionLink("User", "Details", new { id = item.UserID }) | *@
+                    @* @Html.ActionLink("Delete", "Delete", new { id = item.UserID }) *@
+                @*     <a asp-area="User" asp-controller="User" asp-action="Details" asp-route-UserID="@item.UserID">User</a> *@
+                @*     <a asp-area="User" asp-controller="User" asp-action="Create" >Create</a> *@
+                @* </td> *@
+                @* <td>
+@* Add action links for Edit and Delete
+<a asp-action="Edit" asp-route-id="@item.MediumId">Edit</a> |
+<a asp-action="Delete" asp-route-id="@item.MediumId">Delete</a>
+</td> *@
+            </tr>
+        }
+    
+    </tbody>
+</table>

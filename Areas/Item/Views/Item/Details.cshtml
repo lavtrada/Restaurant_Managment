@@ -1,0 +1,37 @@
+﻿@model FoodApp.Areas.Item.Models.Item
+
+@{
+    Layout = "_Layout";
+}
+
+<table>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label ">ItemName : </div>
+    <div class="col-lg-9 col-md-8"> @Model.ItemName</div>
+</div>
+<div class="row">
+    <div class="col-lg-3 col-md-4 label ">ItemDescription : </div>
+    <div class="col-lg-9 col-md-8"> @Model.ItemDescription</div>
+</div>
+<div class="row">
+    <div class="col-lg-3 col-md-4 label ">ItemPrice : </div>
+    <div class="col-lg-9 col-md-8"> @Model.ItemPrice</div>
+</div>
+<div class="row">
+    <div class="col-lg-3 col-md-4 label ">RestaurantName : </div>
+    <div class="col-lg-9 col-md-8"> @Model.RestaurantName</div>
+</div>
+<div class="row">
+    <div class="col-lg-3 col-md-4 label ">CategoryName : </div>
+    <div class="col-lg-9 col-md-8"> @Model.CategoryName</div>
+</div>
+<div class="row">
+    <div class="col-lg-3 col-md-4 label ">RestaurantAddress : </div>
+    <div class="col-lg-9 col-md-8"> @Model.RestaurantAddress</div>
+</div>
+
+<div class="btn btn-info">
+    <a asp-action="Index" style="color: white;">Back to List</a>
+</div>
+</table>

@@ -1,0 +1,45 @@
+﻿@model List<FoodApp.Areas.Restaurant.Models.Restaurant>
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout_Admin";
+}
+
+<div class="pagetitle">
+    <h1>Restaurant List</h1>
+</div>
+<p>
+    <div class="btn btn-info" onmousemove="color=white;">
+        <a asp-action="Add_Edit">Add new restaurant</a>
+    </div>
+</p>
+<div id="pageContent"></div>
+<table class="table table-borderless datatable">
+    <thead>
+    <tr>
+        <th class="col">ID</th>
+        <th class="col">Name</th>
+        <th class="col">Contact</th>
+        <th class="col">Address</th>
+        <th></th>
+        <th></th>
+        @* <th scope="col">Action</th> *@
+    </tr>
+    </thead>
+    
+
+    <tbody>
+    @foreach (var restaurant in Model.ToList())
+    {
+        <tr>
+            <td>@restaurant.RestaurantID</td>
+            <td>@restaurant.RestaurantName</td>
+            <td>@restaurant.RestaurantContact</td>
+            <td>@restaurant.RestaurantAddress</td>
+
+            <td><a asp-area="Restaurant" asp-controller="Restaurant" asp-action="Add_Edit" asp-route-RestraurantID="@restaurant.RestaurantID">Edit</a></td>
+            <td><a asp-area="Restaurant" asp-controller="Restaurant" asp-action="Delete" asp-route-RestaurantID="@restaurant.RestaurantID">Delete</a></td>
+            </tr>
+    }
+    </tbody>
+</table>
+

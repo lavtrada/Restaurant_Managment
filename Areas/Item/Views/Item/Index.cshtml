@@ -1,46 +1,116 @@
-﻿@model List<FoodApp.Areas.Item.Models.Item> 
+﻿@* @using FoodApp.BAL *@
+@* @model List<FoodApp.Areas.Item.Models.Item> *@
+@* *@
+@* @{ *@
+@*     Layout = "_Layout"; *@
+@* } *@
+@* *@
+@*     <div class="pagetitle"> *@
+@*         <h1>Food Item List</h1> *@
+@*     </div> *@
+@* <p> *@
+@*     <div class="btn btn-outline-info" onmousemove="color=white;"> *@
+@*         <a asp-action="Add_Edit">Add new Item</a> *@
+@*     </div> *@
+@* </p> *@
+@* <table class="table table-borderless datatable"> *@
+@*     <thead> *@
+@*         <tr> *@
+@*             <th class="col">ID</th> *@
+@*             <th class="col">Name</th> *@
+@*             <th class="col">Description</th> *@
+@*             <th class="col">Price</th> *@
+@*             <th>Action</th> *@
+@*         </tr> *@
+@*     </thead> *@
+@*     <tbody> *@
+@*         @foreach (var item in Model.ToList()) *@
+@*         { *@
+@*             <tr> *@
+@*                 <td>@item.ItemID</td> *@
+@*                 <td>@item.ItemName</td> *@
+@*                 <td>@item.ItemDescription</td> *@
+@*                 <td>@item.ItemPrice</td> *@
+@*                 <td> *@
+@*                     <div class="btn-group" role="group" aria-label="Actions"> *@
+@*                         @if (!CV.IsAdmin()) *@
+@*                         { *@
+@*                             <a asp-area="Item" asp-controller="Item" asp-action="Details" asp-route-ItemID="@item.ItemID" class="btn btn-outline-info">Details</a> *@
+@*                         } *@
+@*                         else *@
+@*                         { *@
+@*                             <a asp-area="Item" asp-controller="Item" asp-action="Add_Edit" asp-route-ItemID="@item.ItemID" class="btn btn-outline-info">Edit</a> *@
+@*                             <a asp-area="Item" asp-controller="Item" asp-action="Details" asp-route-ItemID="@item.ItemID" class="btn btn-outline-primary">Details</a> *@
+@*                             <a asp-area="Item" asp-controller="Item" asp-action="Delete" asp-route-ItemID="@item.ItemID" class="btn btn-outline-danger">Delete</a> *@
+@*                         } *@
+@*                     </div> *@
+@*                 </td> *@
+@*             </tr> *@
+@*         } *@
+@*     </tbody> *@
+@* </table> *@@using FoodApp.BAL
+@model List<FoodApp.Areas.Item.Models.Item>
 
 @{
     Layout = "_Layout";
 }
 
-<div class="pagetitle">
-    <h1>Food Item List</h1>
-</div>
-<p>
-    <div class="btn btn-info" onmousemove="color=white;">
-        <a asp-action="Add_Edit">Add new Item</a>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Add Items</h1>
+        <a class="btn btn-outline-primary" asp-action="Add_Edit">
+            <i class="fas fa-plus"></i> Add New Item
+        </a>
     </div>
-</p>
-<table class="table table-borderless datatable">
-    <thead>
-    <tr>
-        <th class="col">ID</th>
-        <th class="col">Name</th>
-        <th class="col">Description</th>
-        <th class="col">Price</th>
-        <th></th>
-        <th></th>
-        @* <th scope="col">Action</th> *@
-    </tr>
-    </thead>
 
-    <tbody>
-    @foreach (var item in Model.ToList())
-    {
-        <tr>
-            <td>@item.ItemID</td>
-            <td>@item.ItemName</td>
-            <td>@item.ItemDescription</td>
-            <td>@item.ItemPrice</td>
-
-            <td><a asp-area="Item" asp-controller="Item" asp-action="Add_Edit" asp-route-ItemID="@item.ItemID">Edit</a></td>
-            <td><a asp-area="Item" asp-controller="Item" asp-action="Delete" asp-route-ItemID="@item.ItemID">Delete</a></td>
-            <td><a asp-area="Item" asp-controller="Item" asp-action="Details" asp-route-ItemID="@item.ItemID">Details </a></td>
-                        
-
-        </tr>
-    }
-    </tbody>
-</table>
-
+    <div class="table-responsive mt-3">
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    @* <th class="text-center">ID</th> *@
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @* <td class="text-center">@item.ItemID</td> *@
+                        <td>@item.ItemName</td>
+                        <td>@item.ItemDescription</td>
+                        <td>@item.ItemPrice</td>
+                        <td class="text-center">
+                            <div class="d-flex gap-2 justify-content-center">
+                                @if (!CV.IsAdmin())
+                                {
+                                    <a asp-area="Item" asp-controller="Item" asp-action="Details" asp-route-ItemID="@item.ItemID" 
+                                       class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-info-circle"></i> Details
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a asp-area="Item" asp-controller="Item" asp-action="Add_Edit" asp-route-ItemID="@item.ItemID" 
+                                       class="btn btn-sm btn-outline-success">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </a>
+                                    <a asp-area="Item" asp-controller="Item" asp-action="Details" asp-route-ItemID="@item.ItemID" 
+                                       class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-info-circle"></i> Details
+                                    </a>
+                                    <a asp-area="Item" asp-controller="Item" asp-action="Delete" asp-route-ItemID="@item.ItemID" 
+                                       class="btn btn-sm btn-outline-danger">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </a>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

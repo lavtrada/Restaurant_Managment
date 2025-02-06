@@ -9,7 +9,7 @@ public class SignUp
 
     [Required] public string Password { get; set; }
 
-    // [Required] public string IsAdmin { get; set; }
+    [Required] public string IsAdmin { get; set; }
     [Required] public DateTime CreatedAt { get; set; }
     [Required] public DateTime ModifiedAt { get; set; }
 

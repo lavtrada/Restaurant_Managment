@@ -52,6 +52,7 @@ public class ItemDal : DAL_Helper
             throw;
         }
     }
+
     #endregion
 
     #region Insert Item
@@ -63,12 +64,12 @@ public class ItemDal : DAL_Helper
             DbCommand dbcommand = _sqlDatabase.GetStoredProcCommand("InsertItem");
             _sqlDatabase.AddInParameter(dbcommand, "UserID", SqlDbType.Int, CV.UserID());
             _sqlDatabase.AddInParameter(dbcommand, "RestaurantID", SqlDbType.Int, item.RestaurantID);
-            _sqlDatabase.AddInParameter(dbcommand, "CategoryID", SqlDbType.Int, item.CategoryID);
-            _sqlDatabase.AddInParameter(dbcommand,"@ItemName",SqlDbType.VarChar,item.ItemName);
-            _sqlDatabase.AddInParameter(dbcommand,"@ItemDescription",SqlDbType.VarChar,item.ItemDescription);
-            _sqlDatabase.AddInParameter(dbcommand,"@ItemPrice",SqlDbType.Int,item.ItemPrice);
+            _sqlDatabase.AddInParameter(dbcommand, "CategoryID", SqlDbType.Int, 1
+            );
+            _sqlDatabase.AddInParameter(dbcommand, "@ItemName", SqlDbType.VarChar, item.ItemName);
+            _sqlDatabase.AddInParameter(dbcommand, "@ItemDescription", SqlDbType.VarChar, item.ItemDescription);
+            _sqlDatabase.AddInParameter(dbcommand, "@ItemPrice", SqlDbType.Int, item.ItemPrice);
             return Convert.ToBoolean(_sqlDatabase.ExecuteNonQuery(dbcommand));
-
         }
         catch (Exception e)
         {
@@ -76,6 +77,7 @@ public class ItemDal : DAL_Helper
             throw;
         }
     }
+
     #endregion
 
     #region SelectItemByID
@@ -102,7 +104,6 @@ public class ItemDal : DAL_Helper
                         RestaurantName = dr["RestaurantName"].ToString(),
                         CategoryName = dr["CategoryName"].ToString(),
                         RestaurantAddress = dr["RestaurantAddress"].ToString(),
-                            
                     };
                 }
             }
@@ -115,11 +116,11 @@ public class ItemDal : DAL_Helper
             throw;
         }
     }
+
     #endregion
 
     #region update item
 
-    
     public bool UpdateItem(Item item)
     {
         try
@@ -142,7 +143,9 @@ public class ItemDal : DAL_Helper
             throw;
         }
     }
+
     #endregion
+
     #region Delete Restaurant
 
     public bool DeleteItemByID(int ItemID)
@@ -162,7 +165,7 @@ public class ItemDal : DAL_Helper
     }
 
     #endregion
-    
+
     #region [GetRestaurantDropdownList]
 
     public List<Restaurant> GetRestaurantDropdownList()
@@ -179,7 +182,7 @@ public class ItemDal : DAL_Helper
                 {
                     while (dataReader.Read())
                     {
-                        Restaurant restaurant = new Restaurant ();
+                        Restaurant restaurant = new Restaurant();
                         restaurant.RestaurantID = Convert.ToInt32(dataReader["RestaurantID"]);
                         restaurant.RestaurantName = dataReader["RestaurantName"].ToString();
                         // Add more properties as needed
@@ -200,7 +203,7 @@ public class ItemDal : DAL_Helper
     }
 
     #endregion
-    
+
     #region [GetCategoryDropdownList]
 
     public List<Category> GetCategoryDropdownList()
@@ -217,7 +220,7 @@ public class ItemDal : DAL_Helper
                 {
                     while (dataReader.Read())
                     {
-                        Category category = new Category ();
+                        Category category = new Category();
                         category.CategoryID = Convert.ToInt32(dataReader["CategoryID"]);
                         category.CategoryName = dataReader["CategoryName"].ToString();
                         // Add more properties as needed
@@ -238,6 +241,4 @@ public class ItemDal : DAL_Helper
     }
 
     #endregion
-
-
 }

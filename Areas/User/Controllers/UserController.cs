@@ -100,7 +100,7 @@ namespace FoodApp.Areas.User.Controllers
         {
             if (ModelState.IsValid)
             {
-                User_Dal userDal = new User_Dal();
+                UserDal userDal = new UserDal();
                 DataTable dt = userDal.User_LoginWith_Email_Password(userModel.Email , userModel.Password);
                 if (dt.Rows.Count > 0)
                 {

@@ -1,14 +1,38 @@
-﻿// using System.Linq.Expressions;
-// using System.Runtime.CompilerServices;
-// using FoodApp.Areas.User.Models;
-// using FoodApp.Dal;
-// using FoodApp.Dal.User;
+﻿using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
+using FoodApp.Areas.Auth.Models;
+using FoodApp.Areas.User.Models;
+using FoodApp.Dal;
+using FoodApp.Dal.User;
+
+namespace FoodApp.Bal;
 //
-// namespace FoodApp.Bal;
-//
-// public class UserBal
-// {
-//     private readonly User_Dal userDAL;
+public class UserBal
+{
+    private UserDal userDal;
+
+    public UserBal()
+    {
+        userDal = new UserDal();
+    }
+
+    #region Insert User
+
+    public bool InsertUser(SignUp signUp)
+    {
+        try
+        {
+            return userDal.InsertUser(signUp);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    #endregion
+    //     private readonly User_Dal userDAL;
 //
 //     public UserBal()
 //     {
@@ -73,10 +97,10 @@
 //             Console.WriteLine(e);
 //             throw;
 //         }
-//     }
+
 //
 //     #endregion
 //
 //     
 //     
-// }
+}

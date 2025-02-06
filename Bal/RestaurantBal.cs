@@ -21,8 +21,6 @@ public class RestaurantBal
         {
             try
             {
-                // List<Restaurant> restaurants = restaurantDal.GetAllRestaurants();
-                // return restaurants;
                 return restaurantDal.SelectAllRestaurants();
             }
             catch

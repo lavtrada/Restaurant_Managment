@@ -5,7 +5,7 @@ public class Item
     public int ItemID { get; set; }
     public string ItemName { get; set; }
     public string ItemDescription { get; set; }
-    public int ItemPrice { get; set; }
+    public Int64 ItemPrice { get; set; }
     public int CategoryID { get; set; }
     public string RestaurantName { get; set; }
     
@@ -15,4 +15,6 @@ public class Item
 
     public int RestaurantID { get; set; }
     public int UserID { get; set; }
+    public int Quantity { get; set; }
+    public string Address { get; set; }
 }

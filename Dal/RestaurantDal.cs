@@ -25,6 +25,7 @@ public class RestaurantDal : DAL_Helper
         {
             SqlDatabase sqlDatabase = new SqlDatabase(ConnStr);
             DbCommand cmd = sqlDatabase.GetStoredProcCommand("SelectAllRestaurants");
+            _sqlDatabase.AddInParameter(cmd, "UserID", SqlDbType.Int, CV.UserID());
             List<Restaurant> list = new List<Restaurant>();
             using (IDataReader dr = sqlDatabase.ExecuteReader(cmd))
             {
@@ -32,6 +33,7 @@ public class RestaurantDal : DAL_Helper
                 {
                     Restaurant restaurant = new Restaurant();
                     restaurant.RestaurantID = Convert.ToInt32(dr["RestaurantID"]);
+                    // restaurant.UserID = Convert.ToInt32(dr["UserID"]);
                     restaurant.RestaurantName = dr["RestaurantName"].ToString();
                     restaurant.RestaurantAddress = dr["RestaurantAddress"].ToString();
                     restaurant.RestaurantContact = dr["RestaurantContact"].ToString();

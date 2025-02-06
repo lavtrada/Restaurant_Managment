@@ -4,6 +4,7 @@ namespace FoodApp.Areas.Restaurant.Models;
 
 public class Restaurant
 {
+   public int UserID { get; set; }
    public int RestaurantID { get; set; }
    public string RestaurantName { get; set; }
    public string RestaurantAddress { get; set; } 

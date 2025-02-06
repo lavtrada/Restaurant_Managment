@@ -1,6 +1,8 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using AdminPanel.BAL;
 using FoodApp.Bal;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FoodApp.Areas.Restaurant.Controllers
@@ -19,11 +21,13 @@ namespace FoodApp.Areas.Restaurant.Controllers
         #endregion
 
         #region InsertRestaurant
+        
+        // [Authorize(Roles = "Admin")]
 
         public IActionResult Add_Edit(int RestraurantID)
         {
             if (RestraurantID != 0)
-            {
+            {   
                 return View("Add_Edit",_restaurantBal.SelectRestaurantByID(RestraurantID));
             }
             else
@@ -37,6 +41,7 @@ namespace FoodApp.Areas.Restaurant.Controllers
         #region SaveData
 
         [HttpPost]
+        // [Authorize(Roles = "Admin")]
         public IActionResult Save(Models.Restaurant restaurant)
         {
             if (restaurant.RestaurantID == 0)
@@ -53,7 +58,8 @@ namespace FoodApp.Areas.Restaurant.Controllers
         #endregion
 
         #region Delete Restaurant
-
+        
+        // [Authorize(Roles = "Admin")]
         public IActionResult Delete(int RestaurantID)
         {
             _restaurantBal.DeleteRestaurantByID(RestaurantID);

@@ -64,11 +64,10 @@ namespace FoodApp.Areas.Auth.Controllers
             return RedirectToAction("UserLogin");
         }
 
-        public IActionResult Register(Models.SignUp signUp)
+        public IActionResult Register(SignUp signUp)
         {
-            User_Dal userDal = new User_Dal();
-            bool IsSuccess = userDal.InsertUser(signUp.UserName, signUp.Email, signUp.Password,
-                signUp.CreatedAt, signUp.ModifiedAt);
+            UserDal userDal = new UserDal();
+            bool IsSuccess = userDal.InsertUser(signUp);
             
             if (IsSuccess)
             {
@@ -79,6 +78,7 @@ namespace FoodApp.Areas.Auth.Controllers
                 return RedirectToAction("UserRegister");
             }
         }
+        
 
 
 

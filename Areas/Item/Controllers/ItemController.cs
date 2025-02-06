@@ -64,13 +64,13 @@ namespace FoodApp.Areas.Item.Controllers
 
         public IActionResult Details(int ItemID)
         {
-            var inquiry = _itemBal.SelectItemByID(ItemID);
+            var item = _itemBal.SelectItemByID(ItemID);
             // if (inquiry = null)
             // {
             //     return null;
             // }
 
-            return View(inquiry);
+            return View(item);
         }
 
         #endregion

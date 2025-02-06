@@ -230,6 +230,7 @@ C:\Users\lavtr\RiderProjects\FoodApp\obj\Debug\net6.0\FoodApp.csproj.CoreCompile
 C:\Users\lavtr\RiderProjects\FoodApp\obj\Debug\net6.0\FoodApp.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\lavtr\RiderProjects\FoodApp\obj\Debug\net6.0\FoodApp.RazorAssemblyInfo.cache
 C:\Users\lavtr\RiderProjects\FoodApp\obj\Debug\net6.0\FoodApp.RazorAssemblyInfo.cs
+C:\Users\lavtr\RiderProjects\FoodApp\obj\Debug\net6.0\FoodApp.sourcelink.json
 C:\Users\lavtr\RiderProjects\FoodApp\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\lavtr\RiderProjects\FoodApp\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\lavtr\RiderProjects\FoodApp\obj\Debug\net6.0\staticwebassets\msbuild.FoodApp.Microsoft.AspNetCore.StaticWebAssets.props

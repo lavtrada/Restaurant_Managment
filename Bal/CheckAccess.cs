@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
+﻿using FoodApp.BAL;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AdminPanel.BAL
@@ -37,9 +38,9 @@ namespace AdminPanel.BAL
             //string currentArea = rd.DataTokens["area"].ToString();
 
 
-            if (filterContext.HttpContext.Session.GetString("IsAdmin") != null)
+            if (CV.IsAdmin())
             {
-                filterContext.Result = new RedirectResult("~/SEC_User/SEC_User/SEC_UserRegister");
+                
             }
         }
 

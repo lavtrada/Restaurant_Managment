@@ -1,5 +1,8 @@
 using System.Data.SqlClient;
 using FoodApp.Controllers;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +43,22 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
         name : "areas",
+        pattern : "{area:exists}/{controller=Cart}/{action=Index}/{id?}"
+    );
+});
+
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name : "areas",
+        pattern : "{area:exists}/{controller=}/{action=Index}/{id?}"
+    );
+});
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name : "areas",
         pattern : "{area:exists}/{controller=Restaurant}/{action=Index}/{id?}"
     );
 });
@@ -50,9 +69,18 @@ app.UseEndpoints(endpoints =>
         pattern : "{area:exists}/{controller=Item}/{action=Index}/{id?}"
     );
 });
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name : "areas",
+        pattern : "{area:exists}/{controller=OrderList}/{action=InsertOrder}/{id?}"
+    );
+});
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 
 app.Run();

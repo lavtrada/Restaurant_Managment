@@ -1,45 +1,124 @@
 ﻿@model List<FoodApp.Areas.Restaurant.Models.Restaurant>
+
 @{
-    ViewBag.Title = "title";
-    Layout = "_Layout_Admin";
+    ViewBag.Title = "Restaurant List";
+    Layout = "_Layout";
 }
 
-<div class="pagetitle">
-    <h1>Restaurant List</h1>
-</div>
-<p>
-    <div class="btn btn-info" onmousemove="color=white;">
-        <a asp-action="Add_Edit">Add new restaurant</a>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Restaurant List</h1>
+        <a class="btn btn-outline-primary" asp-action="Add_Edit">
+            <i class="fas fa-plus"></i> Add New Restaurant
+        </a>
     </div>
-</p>
-<div id="pageContent"></div>
-<table class="table table-borderless datatable">
-    <thead>
-    <tr>
-        <th class="col">ID</th>
-        <th class="col">Name</th>
-        <th class="col">Contact</th>
-        <th class="col">Address</th>
-        <th></th>
-        <th></th>
-        @* <th scope="col">Action</th> *@
-    </tr>
-    </thead>
-    
 
-    <tbody>
-    @foreach (var restaurant in Model.ToList())
-    {
-        <tr>
-            <td>@restaurant.RestaurantID</td>
-            <td>@restaurant.RestaurantName</td>
-            <td>@restaurant.RestaurantContact</td>
-            <td>@restaurant.RestaurantAddress</td>
+    <div id="pageContent" class="mt-3"></div>
 
-            <td><a asp-area="Restaurant" asp-controller="Restaurant" asp-action="Add_Edit" asp-route-RestraurantID="@restaurant.RestaurantID">Edit</a></td>
-            <td><a asp-area="Restaurant" asp-controller="Restaurant" asp-action="Delete" asp-route-RestaurantID="@restaurant.RestaurantID">Delete</a></td>
-            </tr>
-    }
-    </tbody>
-</table>
+    <div class="table-responsive mt-3">
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    @* <th>ID</th> *@
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Address</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var restaurant in Model)
+                {
+                    <tr>
+                        @* <td>@restaurant.RestaurantID</td> *@
+                        <td>@restaurant.RestaurantName</td>
+                        <td>@restaurant.RestaurantContact</td>
+                        <td>@restaurant.RestaurantAddress</td>
+                        <td class="text-center">
+                            <div class="d-flex gap-2 justify-content-center">
+                                <a class="btn btn-sm btn-outline-primary" 
+                                   asp-area="Restaurant" 
+                                   asp-controller="Restaurant" 
+                                   asp-action="Add_Edit" 
+                                   asp-route-RestaurantID="@restaurant.RestaurantID">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <a class="btn btn-sm btn-outline-danger"  
+                                   asp-area="Restaurant"  
+                                   asp-controller="Restaurant"  
+                                   asp-action="Delete"  
+                                   asp-route-RestaurantID="@restaurant.RestaurantID"> 
+                                    <i class="fas fa-trash"></i> Delete 
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 
+@* *@
+@* @model List<FoodApp.Areas.Restaurant.Models.Restaurant> *@
+@* *@
+@* @{ *@
+@*     ViewBag.Title = "Restaurant List"; *@
+@*     Layout = "_Layout"; *@
+@* } *@
+@* *@
+@* <div class="container mt-4"> *@
+@*     <div class="d-flex justify-content-between align-items-center"> *@
+@*         <h1 class="text-primary">Restaurant List</h1> *@
+@*         <a class="btn btn-outline-primary" asp-action="Add_Edit"> *@
+@*             <i class="fas fa-plus"></i> Add New Restaurant *@
+@*         </a> *@
+@*     </div> *@
+@* *@
+@*     <div id="pageContent" class="mt-3"></div> *@
+@* *@
+@*     <div class="table-responsive mt-3"> *@
+@*         <table class="table table-striped table-bordered"> *@
+@*             <thead class="table-dark"> *@
+@*                 <tr> *@
+@*                     <th>ID</th> *@
+@*                     <th>Name</th> *@
+@*                     <th>Contact</th> *@
+@*                     <th>Address</th> *@
+@*                     <th class="text-center">Actions</th> *@
+@*                 </tr> *@
+@*             </thead> *@
+@*             <tbody> *@
+@*                 @foreach (var restaurant in Model) *@
+@*                 { *@
+@*                     <tr> *@
+@*                         <td>@restaurant.RestaurantID</td> *@
+@*                         <td>@restaurant.RestaurantName</td> *@
+@*                         <td>@restaurant.RestaurantContact</td> *@
+@*                         <td>@restaurant.RestaurantAddress</td> *@
+@*                         <td class="text-center"> *@
+@*                             <div class="btn-group" role="group"> *@
+@*                                 <a class="btn btn-sm btn-outline-primary"  *@
+@*                                    asp-area="Restaurant"  *@
+@*                                    asp-controller="Restaurant"  *@
+@*                                    asp-action="Add_Edit"  *@
+@*                                    asp-route-RestaurantID="@restaurant.RestaurantID"> *@
+@*                                     <i class="fas fa-edit"></i> Edit *@
+@*                                 </a> *@
+@*                                 $1$ $2$ Uncomment to enable delete option #2# #1# *@
+@*                                    <a class="btn btn-sm btn-outline-danger"   *@
+@*                                     asp-area="Restaurant"   *@
+@*                                     asp-controller="Restaurant"   *@
+@*                                     asp-action="Delete"   *@
+@*                                     asp-route-RestaurantID="@restaurant.RestaurantID">  *@
+@*                                      <i class="fas fa-trash"></i> Delete  *@
+@*                                 </a>  *@
+@*                             </div> *@
+@*                         </td> *@
+@*                     </tr> *@
+@*                 } *@
+@*             </tbody> *@
+@*         </table> *@
+@*     </div> *@
+@* </div> *@
+@* *@

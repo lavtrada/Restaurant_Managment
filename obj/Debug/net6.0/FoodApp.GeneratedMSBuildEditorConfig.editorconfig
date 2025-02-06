@@ -34,6 +34,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXV0aFxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/lavtr/RiderProjects/FoodApp/Areas/Cart/Views/Cart/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ2FydFxWaWV3c1xDYXJ0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lavtr/RiderProjects/FoodApp/Areas/Cart/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ2FydFxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/lavtr/RiderProjects/FoodApp/Areas/Item/Views/Item/Add_Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSXRlbVxWaWV3c1xJdGVtXEFkZF9FZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -48,6 +56,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/lavtr/RiderProjects/FoodApp/Areas/Item/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSXRlbVxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lavtr/RiderProjects/FoodApp/Areas/MenuList/Views/MenuList/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudUxpc3RcVmlld3NcTWVudUxpc3RcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lavtr/RiderProjects/FoodApp/Areas/MenuList/Views/MenuList/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudUxpc3RcVmlld3NcTWVudUxpc3RcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lavtr/RiderProjects/FoodApp/Areas/MenuList/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudUxpc3RcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lavtr/RiderProjects/FoodApp/Areas/OrderList/Views/OrderList/InsertOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JkZXJMaXN0XFZpZXdzXE9yZGVyTGlzdFxJbnNlcnRPcmRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lavtr/RiderProjects/FoodApp/Areas/OrderList/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3JkZXJMaXN0XFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/lavtr/RiderProjects/FoodApp/Areas/Restaurant/Views/Restaurant/Add_Edit.cshtml]

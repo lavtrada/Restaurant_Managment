@@ -15,7 +15,10 @@
 
     <ItemGroup>
       <Folder Include="Areas\Auth\Data\" />
+      <Folder Include="Areas\Cart\Data\" />
       <Folder Include="Areas\Item\Data\" />
+      <Folder Include="Areas\MenuList\Data\" />
+      <Folder Include="Areas\OrderList\Data\" />
       <Folder Include="Areas\Restaurant\Data\" />
       <Folder Include="Areas\User\Data\" />
       <Folder Include="Data\" />

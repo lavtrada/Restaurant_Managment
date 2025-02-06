@@ -28,7 +28,8 @@ namespace FoodApp.Areas.Restaurant.Controllers
         {
             if (RestraurantID != 0)
             {   
-                return View("Add_Edit",_restaurantBal.SelectRestaurantByID(RestraurantID));
+                Models.Restaurant restaurant = _restaurantBal.SelectRestaurantByID(RestraurantID);
+                return View(restaurant);
             }
             else
             {

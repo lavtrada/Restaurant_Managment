@@ -32,6 +32,7 @@ namespace FoodApp.Dal
             {
                 obj.UserID = Convert.ToInt32(idr["UserID"]);
                 obj.UserEmail = idr["UserEmail"].ToString();
+                obj.UserName = idr["UserName"].ToString();
                 obj.UserPassword = idr["UserPassword"].ToString();
                 obj.IsAdmin = Convert.ToBoolean(idr["IsAdmin"].ToString());
             }

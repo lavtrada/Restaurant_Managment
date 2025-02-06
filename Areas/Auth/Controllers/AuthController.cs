@@ -46,7 +46,7 @@ namespace FoodApp.Areas.Auth.Controllers
                 else
                 {
                     HttpContext.Session.SetInt32("UserID", obj.UserID);
-                    // HttpContext.Session.SetString("UserName",obj.UserName);
+                     HttpContext.Session.SetString("UserName",obj.UserName);
                     HttpContext.Session.SetString("UserPassword",obj.UserPassword);
                     HttpContext.Session.SetString("UserEmail", obj.UserEmail);
                     HttpContext.Session.SetString("IsAdmin", obj.IsAdmin.ToString());

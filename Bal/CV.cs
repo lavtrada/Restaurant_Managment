@@ -1,5 +1,4 @@
-﻿namespace FoodApp.BAL
-{
+﻿namespace FoodApp.BAL;
     public class CV
     {
         private static IHttpContextAccessor _HttpContextAccessor;
@@ -29,4 +28,3 @@
             return Convert.ToBoolean(_HttpContextAccessor.HttpContext.Session.GetString("IsAdmin"));
         }
     }
-}

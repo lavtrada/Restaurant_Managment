@@ -1,0 +1,131 @@
+﻿@model FoodApp.Areas.Item.Models.Item
+
+@{
+    Layout = "_Layout";
+}
+
+<style>
+    .table-custom {
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .table-custom thead th {
+        background-color: #4a90e2;
+        color: white;
+        font-weight: 600;
+        border-bottom: 2px solid #357abd;
+    }
+
+    .table-custom tbody td {
+        vertical-align: middle;
+        padding: 1.25rem;
+    }
+
+    .table-custom tbody tr:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+
+    .table-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .detail-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    }
+
+    .detail-card h3 {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    .form-group label {
+        font-weight: 500;
+        color: #4a4a4a;
+    }
+
+    .btn-outline-success {
+        border-color: #4a90e2;
+        color: #4a90e2;
+    }
+
+    .btn-outline-success:hover {
+        background-color: #4a90e2;
+        color: white;
+    }
+</style>
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4" style="color: #2c3e50; font-weight: 700;">Item Details</h1>
+
+    <div class="table-container">
+        <div class="detail-card">
+            <h3>Item Information</h3>
+            <table class="table table-custom">
+                <tbody>
+                    <tr>
+                        <td><strong>Name</strong></td>
+                        <td>@Model.ItemName</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Description</strong></td>
+                        <td>@Model.ItemDescription</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Price</strong></td>
+                        <td>@Model.ItemPrice.ToString("C")</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-card">
+            <h3>Restaurant Information</h3>
+            <table class="table table-custom">
+                <tbody>
+                    <tr>
+                        <td><strong>Name</strong></td>
+                        <td>@Model.RestaurantName</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Address</strong></td>
+                        <td>@Model.RestaurantAddress</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <form asp-area="Cart" asp-controller="Cart" asp-action="Save" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+        @Html.HiddenFor(x => x.ItemID)
+
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label asp-for="Quantity" class="control-label">Number of Items</label>
+                <input asp-for="Quantity" class="form-control" style="border-radius: 4px;" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 form-group">
+                <label asp-for="Address" class="control-label">Delivery Address</label>
+                <input asp-for="Address" class="form-control" style="border-radius: 4px;" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center gap-3 mt-4">
+            <button type="submit" class="btn btn-outline-success px-4 py-2">Add to Cart</button>
+            <a asp-action="Index" class="btn btn-outline-secondary px-4 py-2">Back to Menu</a>
+        </div>
+    </form>
+</div>

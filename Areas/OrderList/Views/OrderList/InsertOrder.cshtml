@@ -1,0 +1,94 @@
+﻿@* @model List<FoodApp.Areas.OrderList.Models.OrderList> *@
+@* *@
+@* @{ *@
+@*     ViewBag.Title = "title"; *@
+@*     Layout = "_Layout"; *@
+@* } *@
+@* *@
+@* <div class="pagetitle"> *@
+@*     <h1>Orders</h1> *@
+@* </div> *@
+@* <table class="table"> *@
+@*     <thead> *@
+@*     <tr> *@
+@*         $1$ <th>Cart ID</th> #1# *@
+@*         <th>Item Name</th> *@
+@*         <th>Quantity</th> *@
+@*         <th>Address</th> *@
+@*         <th>Action</th> *@
+@*     </tr> *@
+@*     </thead> *@
+@*     <tbody> *@
+@*     @foreach (var item in Model.ToList()) *@
+@*     { *@
+@*         <tr> *@
+@*             $1$ <td>@item.CartID</td> #1# *@
+@*             <td>@item.ItemName</td> *@
+@*             <td>@item.Quantity</td> *@
+@*             <td>@item.Address</td> *@
+@*             <td> *@
+@*                 <a asp-area="Cart" asp-controller="Cart" asp-action="Delete" asp-route-CartID="@item.CartID" class="btn btn-outline-danger">Delete</a> *@
+@*             </td> *@
+@*         </tr> *@
+@*     } *@
+@*     </tbody> *@
+@*     <tfoot> *@
+@*     <tr> *@
+@*         <td colspan="7"></td> *@
+@*          *@
+@*     </tr> *@
+@*          *@
+@*          *@
+@*     </tfoot> *@
+@* </table> *@
+@* <a asp-area="Cart" asp-controller="Cart" asp-action="" class="btn btn-primary">Place Order</a> *@
+@model List<FoodApp.Areas.OrderList.Models.OrderList>
+
+@{
+    ViewBag.Title = "Orders";
+    Layout = "_Layout";
+}
+
+<!-- Include SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<div class="pagetitle">
+    <h1>Orders</h1>
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Item Name</th>
+        <th>Quantity</th>
+        <th>Address</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.ToList())
+    {
+        <tr>
+            <td>@item.ItemName</td>
+            <td>@item.Quantity</td>
+            <td>@item.Address</td>
+            <td>
+                <a asp-area="Cart" asp-controller="Cart" asp-action="Delete" asp-route-CartID="@item.CartID" class="btn btn-outline-danger">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<!-- Place Order Button -->
+<button id="placeOrderBtn" class="btn btn-primary">Place Order</button>
+
+<script>
+    document.getElementById("placeOrderBtn").addEventListener("click", function () {
+        Swal.fire({
+            title: "Order Placed!",
+            text: "Your order has been successfully placed.",
+            icon: "success",
+            confirmButtonText: "OK"
+        });
+    });
+</script>

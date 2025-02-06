@@ -1,0 +1,39 @@
+﻿@model List<FoodApp.Areas.Item.Models.Item>
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="pagetitle">
+    <h1>Menu</h1>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover datatable">
+        <thead class="table-dark">
+            <tr>
+                @* <th>ID</th> *@
+                <th>Food Name</th>
+                <th>Food Price</th>
+                <th>Food Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @* <td>@item.ItemID</td> *@
+                    <td>@item.ItemName</td>
+                    <td>@item.ItemPrice.ToString("C")</td> @* Formats price as currency *@
+                    <td>@item.ItemDescription</td>
+                    <td>
+                        <a class="btn btn-outline-primary btn-sm d-block w-100 text-center" asp-area="MenuList" asp-controller="MenuList" asp-action="Details" asp-route-MenuListID="@item.ItemID">
+                                                    <i class="bi bi-eye"></i> Details
+                                                </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
